@@ -31,10 +31,10 @@ class Spell extends React.Component{
 
     render() {
         const { name, level } = this.state;
-        return <div>
-            <h1>{name}</h1>
+        return <div className="spell">
+            <h3>{name}</h3>
             <p>
-                {level}
+                lvl.{level}
             </p>
         </div>;
     }

@@ -8,6 +8,27 @@
   pointer-events: none;
 }
 
+#navigation {
+  color: white;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  display: flex;
+  background-color: #282c34;
+}
+
+#navCorrect {
+  margin-top: 100px;
+}
+
+.navItem {
+  flex-grow: 1;
+}
+
+.selected {
+  background-color: #61dafb;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -30,9 +51,11 @@
   flex-direction: row;
   justify-content: left;
 }
-.Spell {
+.spell {
+  border: 2px solid #282c34;
   flex-grow: 1;
-  margin: 20px;
+  margin: 10px;
+  min-width: 20vw;
 }
 
 @keyframes App-logo-spin {
