@@ -18,13 +18,11 @@ class Deck extends React.Component{
         this.setState({filtered: JSON.parse(dndStored)});
     }
 
-    handleChange(e) {
+    handleChange(e) {//deze functie is code van https://dev.to/iam_timsmith/lets-build-a-search-bar-in-react-120j
         const { cards } = this.state;
         let currentList = [];
         let newList = [];
-        // If the search bar isn't empty
         if (e.target.value !== "") {
-            // Assign the original list to currentList
             currentList = cards;
             newList = currentList.filter(item => {
                 const spellname = item.name.toLowerCase();
@@ -44,12 +42,12 @@ class Deck extends React.Component{
         let cardlist = <div>cards not taken from the ether</div>
         if (filtered) {
             cardlist = filtered.map((card, key) => {
-                return (<Spell key={card.name} name={card.name}></Spell>);
+                return (<Spell key={card.name} name={card.name}/>);
             });
         }
         return <div>
             <div>
-                <input type="text" className="input" placeholder="Search..." onChange={this.handleChange}/>
+                <input type="text" className="input" placeholder="Search Spells..." onChange={this.handleChange}/>
             </div>
             <div id="Decklist">
                 {cardlist}

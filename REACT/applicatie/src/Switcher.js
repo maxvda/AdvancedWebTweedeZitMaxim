@@ -14,7 +14,6 @@ class Switcher extends React.Component{
 
     componentDidMount() {
         let current = localStorage.getItem('page');
-        let dnd = localStorage.getItem('dnd');
         if (current !== null) {
             this.setState({selected: current});
         }
@@ -41,7 +40,7 @@ class Switcher extends React.Component{
                     <div className={!selected ? 'navItem selected' : 'navItem deselected'} onClick={()=>{this.handleClick();}}><h2>SpellBook</h2></div>
                 </div>
                 <div id="navCorrect">
-                    {selected ? <Deck></Deck> : <Spellbook></Spellbook>}
+                    {selected ? <Deck/> : <Spellbook/>}
                 </div>
             </div>
         );

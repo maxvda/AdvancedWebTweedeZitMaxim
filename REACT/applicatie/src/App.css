@@ -23,6 +23,7 @@
 
 .navItem {
   flex-grow: 1;
+  cursor: pointer;
 }
 
 .selected {
@@ -43,19 +44,30 @@
 .App-link {
   color: #61dafb;
 }
+
 #Decklist {
   display: flex;
   flex-wrap: wrap;
 }
+
 .Deck{
   flex-direction: row;
   justify-content: left;
 }
+
 .spell {
   border: 2px solid #282c34;
   flex-grow: 1;
   margin: 10px;
-  min-width: 20vw;
+  min-width: 200px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.remove {
+  color: red;
 }
 
 @keyframes App-logo-spin {

@@ -1,32 +1,32 @@
 import React from 'react';
 import Spellpage from "./Spellpage";
-import axios from 'axios';
 
 
 class Spellbook extends React.Component{
     constructor() {
         super();
+        this.changer = this.changer.bind(this);
         this.state = {
-            cards: [],
+            changed: false,
         };
     }
 
-    componentDidMount() {
-        axios.get('http://www.dnd5eapi.co/api/spells')
-            .then(response => {
-                this.setState({cards: response.data.results});
-            });
+    changer(){
+        const  {change} = this.state;
+        this.setState({change:!change});
     }
 
     render() {
-        const { cards } = this.state;
-        const cardlist = cards.map((card, key) => {
-            return (<Spellpage name={card.name}></Spellpage>);
-        });
+        let spellList = <div>You haven't added any spells to your SpellBook. Pick a card from the Deck.</div>
+        let spellBook = JSON.parse(localStorage.getItem('book'));
+        if (spellBook) {
+            spellList = spellBook.map((spell, key) => {
+                return (<Spellpage key={spell.spell} name={spell.spell} change={this.changer}/>);
+            });
+        }
         return <div>
-            <p>Deckrender</p>
             <div id="Decklist">
-                {cardlist}
+                {spellList}
             </div>
         </div>;
     }
